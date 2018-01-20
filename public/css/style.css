@@ -1,0 +1,126 @@
+/* BODY */
+body
+{
+  background: #F8FCFE;
+}
+/* BOUTONS */
+
+/*FOOTER*/
+.card-footer
+{
+  background-color: black;
+  text-align: center;
+  padding : 35px 0;
+}
+.card-footer-one a
+{
+  font-size: 1.5em;
+  color: white;
+  text-decoration: none;
+}
+.card-footer-two
+{
+  font-family: Pristina;
+  font-size: 1.5em;
+  color : white;
+}
+/* NAVBAR */
+.navbar-default {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+.navbar-default {
+  background-color: black;
+  border-color: #e7e7e7;
+}
+.breadcrumb > li > a
+{
+  padding-left: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+.breadcrumb > li > a:hover
+{
+  font-family: Pristina;
+  font-size: 30px;
+}
+.navbar-brand
+{
+  color: white;
+  font-family: Pristina;
+  font-size: 60px;
+}
+.breadcrumb
+{
+  background-color: black;
+}
+/* TOUTES LES PAGES */
+.card
+{
+  text-align: justify;
+  padding: 15px;
+  margin: 20px;
+}
+/* PAGE HOME */
+.image
+{
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 700px;
+}
+.card-home-title .card-title
+{
+  font-family: Pristina;
+  font-size: 80px;
+}
+.card-home-title .card-author
+{
+  float: right;
+  font-size: 22px;
+}
+/* PAGE POSTS + HOME */
+.card-title-posts
+{
+  text-align: center;
+  font-family: Pristina;
+  font-size: 60px;
+}
+.card-title
+{
+  font-family: Pristina;
+  font-size: 30px;
+  text-align: center;
+}
+.card-author
+{
+  font-weight: bold;
+}
+/* PAGE POST */
+.retour-accueil
+{
+  padding-left: 90px;
+}
+.card-report .card-message
+{
+  color: red;
+}
+.card-comments .card-title-comments
+{
+  font-size: 20px;
+}
+.card-report
+{
+  background-color: #E9EAEA;
+}
+.card-post  .card-title
+{
+  font-family: Pristina;
+  font-size: 50px;
+}
+.card-post .card-author
+{
+  font-weight: bold;
+}
