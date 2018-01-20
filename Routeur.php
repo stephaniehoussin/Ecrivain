@@ -17,19 +17,19 @@ public function routerRequete()
 		    }
      if($action == 'home')
         {
-            $controller = new HomeController();
-            $controller->Home();
+            $controller = new FrontController();
+            $controller->home();
         }
         elseif($action == 'posts')
         {
-          $controller = new PostController();
-          $controller->AllPosts();
+          $controller = new FrontController();
+          $controller->allPosts();
         }
         elseif($action == 'post')
            {
                if (isset($_GET['id']) && $_GET['id'] > 0)
                    {
-                       $controller = new PostController();
+                       $controller = new FrontController();
                        $controller->post();
                    }
                else
@@ -43,7 +43,7 @@ public function routerRequete()
                 {
                     if (!empty($_POST['author']) && !empty($_POST['comment']))
                       {
-                          $controller = new CommentController();
+                          $controller = new FrontController();
                           $controller->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                       }
             else
@@ -58,7 +58,7 @@ public function routerRequete()
         }
        elseif($action == 'login')
           {
-            $controller = new LoginController();
+            $controller = new AdminController();
             if(isset($_POST['login']) && isset($_POST['password']))
             {
 
@@ -91,30 +91,30 @@ public function routerRequete()
               header('Location:index.php?action=login');
             }
                 $controller = new AdminController();
-                $controller->AllAdmin();
+                $controller->allAdmin();
           }
           elseif($action == 'createNewPost')
             {// declenche l'appelle a la vue de tinycme
                $controller = new AdminController();
-               $controller->CreateAdminPost();
+               $controller->createAdminPost();
             }
           elseif($action == 'validateNewPost')
             {
                 $controller = new AdminController();
-                $controller->CreateNewPost($_POST['author'], $_POST['title'], $_POST['content']);
-                $controller->AllAdmin();
+                $controller->createNewPost($_POST['author'], $_POST['title'], $_POST['content']);
+                $controller->allAdmin();
             }
             elseif($action == 'deletePost')
             {
                 $controller = new AdminController();
                 $controller->deletePost($_GET['id']);
-                $controller->AllAdmin();
+                $controller->allAdmin();
             }
             elseif($action == 'deleteComment')
             {
                 $controller = new AdminController();
                 $controller->deleteComment($_GET['id']);
-                $controller->AllAdmin();
+                $controller->allAdmin();
             }
             elseif($action == 'updateModifyPost')
             {
@@ -125,13 +125,13 @@ public function routerRequete()
             {
               $controller = new AdminController();
               $controller->updateAdminPost();
-              $controller->AllAdmin();
+              $controller->allAdmin();
             }
             elseif($action == 'reportComment')
             {
               if(isset($_GET['id']) && $_GET['id'] >0)
               {
-                $controller = new CommentController();
+                $controller = new FrontController();
                 $controller->reportComment($_GET['id'], $_GET['postId']);
               }
               else {
@@ -145,7 +145,7 @@ public function routerRequete()
               {
                 $controller = new AdminController();
                 $controller->approveComment($_GET['id']);
-                $controller->AllAdmin();
+                $controller->allAdmin();
               }
               else {
                 throw new Exception('Aucun identifiant de signalement à approuver');

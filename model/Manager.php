@@ -18,4 +18,3 @@ class Manager
         return $this->db;
     }
 }
- ?>

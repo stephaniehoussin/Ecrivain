@@ -84,5 +84,3 @@ class Post
     $this->donnees = $donnees;
   }
 }
-
- ?>

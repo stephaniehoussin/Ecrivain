@@ -60,4 +60,3 @@ class CommentManager extends Manager
      $req->closeCursor();
    }
 }
- ?>

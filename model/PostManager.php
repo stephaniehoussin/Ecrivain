@@ -31,7 +31,7 @@ class PostManager extends Manager
 
   // CREATE billet
   // Récupère en paramètres les infos dont on a besoin
-  public function CreatePost($author,$title,$content)
+  public function createPost($author,$title,$content)
   {
       $req = $this->db()->prepare('INSERT INTO posts(author,title,content,creation_date) VALUES(?, ?, ?, NOW())');
       $req->bindValue( 1, $author, PDO::PARAM_STR);
@@ -69,4 +69,3 @@ class PostManager extends Manager
             return $post;
       }
 }
- ?>

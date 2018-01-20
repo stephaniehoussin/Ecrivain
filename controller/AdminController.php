@@ -1,8 +1,26 @@
 <?php
 class AdminController
 {
+  // Appel de la vue de login
+   public function login()
+     {
+       require('view/LoginView.php');
+     }
+
+     public function loginConnexion($login,$password)
+     {
+        if($login == 'admin' && $password == 'toto')
+        {
+          $_SESSION['admin'] = 'JForteroche';
+          return true;
+        }
+        return false;
+        // $pass_hash = password_hash($_POST['password'], PASSWORD_DEFAULT); // code openclassrooms
+         //$LoginManager = new LoginManager();
+         //$reponse = $LoginManager->LoginConnexion($login, $pass_hash);
+     }
   // AFFICHE TOUS les billets et les commentaires associés
-   public function AllAdmin()
+   public function allAdmin()
    {
         $postManager = new PostManager();
         $posts = $postManager->getAllPosts();
@@ -11,15 +29,15 @@ class AdminController
         require ('view/AdminView.php');
    }
    // CREATE -> Appel de la vue de création d'un billet
-   public function CreateAdminPost()
+   public function createAdminPost()
    {
         require('view/CreateNewPostView.php');
    }
    // CREATION billet -> Récupère en paramètres les infos dont on a besoin
-   public function CreateNewPost($author, $title, $content)
+   public function createNewPost($author, $title, $content)
    {
        $postManager = new PostManager();
-       $posts = $postManager->CreatePost($author,$title,$content);
+       $posts = $postManager->createPost($author,$title,$content);
        header('Location : index.php?action=admin');
    }
    // SUPPRESSION d'un billet ET de ses commentaires associés -> Récupère en paramètres les infos dont on a besoin
@@ -60,4 +78,3 @@ class AdminController
       header('Location: index.php?action=admin');
    }
 }
-?>
