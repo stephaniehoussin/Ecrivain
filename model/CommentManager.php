@@ -22,7 +22,6 @@ class CommentManager extends Manager
         $comment = new Comment($donnees);
         return $comment;
     }
-  // CREATE commentaires
   // Ajoute les commentaires en fonction du post
   // Récupère en paramètres les infos dont on a besoin
   public function addComment(comments $comments)//OK
