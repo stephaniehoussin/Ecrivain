@@ -8,10 +8,10 @@
   <div class="card">
     <div class="card-post">
     <div class="col-lg-12">
-                  <h2 class="card-title">  <?= htmlspecialchars($post['title']); ?></h2>
-                  <p class="card-author">par <?= htmlspecialchars($post['author']);?></p>
-                  <p class="card-date">le <?= $post['creation_date_fr']; ?></p>
-                  <p class="card-text"><?= nl2br($post['content']); ?></p>
+                  <h2 class="card-title">  <?= htmlspecialchars($post->getTitle()); ?></h2>
+                  <p class="card-author">par <?= htmlspecialchars($post->getAuthor());?></p>
+                  <p class="card-date">le <?= $post->getCreation_date(); ?></p>
+                  <p class="card-text"><?= nl2br($post->getContent()); ?></p>
               <br/>
             </div>
               <!-- Formulaire pour laisser des commentaires -->
@@ -19,7 +19,7 @@
             <div class="card-comments">
             <div class="col-lg-8">
         <h2 class="card-title-comments">Laissez nous votre commentaire :</h2><br/>
-        <form action="index.php?action=addComment&amp;id=<?= $post['id'];?>" method="post">
+        <form action="index.php?action=addComment&amp;id=<?= $post->getId();?>" method="post">
             <div>
                 <label for="author">Votre nom :</label><br />
                 <input type="text" id="author" name="author" />

@@ -1,23 +1,22 @@
 <?php
 class AdminController
 {
-  // Appel de la vue de login
-   public function login()
+   public function showlogin()
      {
        require('view/LoginView.php');
      }
-
-     public function loginConnexion($login,$password)
+    public function signin($login,$password)
      {
-        if($login == 'admin' && $password == 'toto')
-        {
-          $_SESSION['admin'] = 'JForteroche';
-          return true;
+        $userManager = new UserManager();
+        $result = $userManager->getUsername($login,$password);
+
+        if($result){
+          $_SESSION['id'] = $result['id'];
+          header('Location:index.php?action=admin');
         }
-        return false;
-        // $pass_hash = password_hash($_POST['password'], PASSWORD_DEFAULT); // code openclassrooms
-         //$LoginManager = new LoginManager();
-         //$reponse = $LoginManager->LoginConnexion($login, $pass_hash);
+        else{
+          throw new Exception('Mauvaise saisie de l\'identifiant ou du mot de passe');
+        }
      }
   // AFFICHE TOUS les billets et les commentaires associés
    public function allAdmin()

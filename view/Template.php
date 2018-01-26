@@ -16,7 +16,7 @@
         <script type="text/javascript" src="public/js/tiny_mce/tiny_mce.js"></script>
         <script type="text/javascript">
         tinyMCE.init({
-          width : 1000,
+          width : 700,
           height : 500,
             entity_encoding : "raw",
             encoding : "utf-8",

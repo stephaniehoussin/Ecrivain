@@ -17,14 +17,15 @@ class FrontController
   }
   // Appel PostManager et sa methode de recup de 1 post
   // Appel CommentManager et sa methode commentaires associés à ce post
-public function post()
+public function onepost()
 {
     $postManager = new PostManager();
     $post = $postManager->getOnePost($_GET['id']);
-
+  //  $post = $this->post->getOnePost($postId);
     // Affiche les commentaires en fonction du post
     $commentManager = new CommentManager();
     $comments = $commentManager->getComments($_GET['id']);
+    //$comments = $this->comment->getComments($postId);
     require('view/postView.php');
 }
 // CREATE  Ajout de commentaires -> Récupère en paramètres les infos dont on a besoin

@@ -4,7 +4,7 @@ function autoload($classname) {
 	if(file_exists($file = 'controller/' . $classname . '.php')) {
 		require $file;
 	} elseif(file_exists($file = 'model/' . $classname . '.php')) {
-		 include_once $file;
+		 require $file;
 	} elseif(file_exists($file = 'view/' . $classname . '.php')) {
 		require $file;
 	}
@@ -13,13 +13,3 @@ function autoload($classname) {
 	}
 }
 spl_autoload_register('autoload');
-
-// __DIR__ indique le repertoire du fichier courant
-/*function autoload($classname)
-{
-  if(file_exists($file = __DIR__. '/..' .$classname. '.php'))
-  {
-    require $file;
-  }
-}
-spl_autoload_register('autoload');*/

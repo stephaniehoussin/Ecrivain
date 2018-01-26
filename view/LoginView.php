@@ -7,11 +7,11 @@
       <div class="col-lg-12">
 <div class="card">
     <div class="card-form">
-  <form action="index.php?action=login" method="post">
+  <form action="index.php?action=signin" method="post">
     <label for="Login">Identifiant</label>
-    <input type="login" class="form-control" placeholder="Votre identifiant" name="login"/></br>
+    <input type="login" class="form-control" placeholder="Votre identifiant" name="login" required=""/></br>
     <label for="Password">Mot de Passe</label>
-    <input type="password" class="form-control" placeholder="Votre mot de passe" name="password"/></br>
+    <input type="password" class="form-control" placeholder="Votre mot de passe" name="password" required=""/></br>
     <button class="btn btn-lg btn-primary btn-block" type"submit">Se connecter</button>
   </form>
 </div>

@@ -1,6 +1,6 @@
 <?php
-require('model/PostManager.php');
-// INUTILE POUR LE MOMENT
+//require('model/PostManager.php');
+
 class Post
 {
   private $id;
@@ -16,6 +16,7 @@ class Post
       $this->hydrate($donnees);
     }
   }
+
 
   public function hydrate(array $donnees)
   {
