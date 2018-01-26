@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row">
 <?php foreach ($posts as $post):?>
-    <div class="col-lg-6 col-lg-6">
+      <div class="col-lg-6 col-lg-6">
         <div class="card">
           <div class="card-posts">
               <p class="card-title">Episode n° <?=$post->getId();?> : "<?= htmlspecialchars($post->getTitle());?>"</p>
@@ -15,7 +15,7 @@
               <a class="card-btn"><em><a href="index.php?action=post&amp;id=<?=$post->getId();?>" class="btn link">Lire la suite</a></em><br/></a><br/>
           </div>
         </div>
-    </div>
+      </div>
 <?php endforeach;?>
     </div>
   </div>

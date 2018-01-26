@@ -1,6 +1,4 @@
 <?php
-//require('model/PostManager.php');
-
 class Post
 {
   private $id;
@@ -9,6 +7,7 @@ class Post
   private $content;
   private $creation_date;
 
+
   public function __construct($donnees = [])
   {
     if(!empty($donnees)) // si on a specifie des valeurs alors on hydrate l objet
@@ -16,7 +15,6 @@ class Post
       $this->hydrate($donnees);
     }
   }
-
 
   public function hydrate(array $donnees)
   {
@@ -29,9 +27,7 @@ class Post
       }
     }
   }
-
   // getters -> retournent les proprietes
-
   public function getId()
   {
     return $this->id;
@@ -51,6 +47,7 @@ class Post
   public function getCreation_date()
   {
     return $this->creation_date;
+
   }
   public function getDonnees()
   {
@@ -59,10 +56,7 @@ class Post
   // SETTERS
   public function setId($id)
   {
-    if(is_int($id) AND $id > 0)
-    {
       $this->id =  $id;
-    }
   }
   public function setAuthor($author)
   {

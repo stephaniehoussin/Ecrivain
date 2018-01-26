@@ -25,13 +25,13 @@
           <!-- boucle et affichage des billets => revoir la mise en forme-->
           <?php foreach ($posts as $post):?>
            <tr>
-             <td><?= $post['id'] ?></td>
-             <td><?= $post['creation_date_fr'] ?></td>
+             <td><?= $post->getId(); ?></td>
+             <td><?= $post->getCreation_date();?></td>
             <!-- <td><?= htmlspecialchars($post['author'])?></td>-->
-             <td><?= htmlspecialchars($post['title']) ?></td>
-             <td><?= substr($post['content'],0,200) ?></td><!-- limitation à 400 caractères -->
-             <td><a href="index.php?action=updateModifyPost&amp;id=<?= $post['id'] ?>">Modifier</a></td>
-             <td><a href="index.php?action=deletePost&amp;id=<?= $post['id']?>" onclick="return confirm('Etes vous certain de vouloir effacer ce Billet?')">Supprimer</a></td>
+             <td><?= htmlspecialchars($post->getTitle());?></td>
+             <td><?= substr($post->getContent(),0,400); ?></td><!-- limitation à 400 caractères -->
+             <td><a href="index.php?action=updateModifyPost&amp;id=<?= $post->getId();?>">Modifier</a></td>
+             <td><a href="index.php?action=deletePost&amp;id=<?= $post->getId();?>" onclick="return confirm('Etes vous certain de vouloir effacer ce Billet?')">Supprimer</a></td>
            </tr>
         <?php endforeach;?>
         </tbody>
@@ -58,10 +58,10 @@
           <?php foreach ($comments as $comment):?>
            <tr>
              <!--<td><?= $comment['id'] ?></td>-->
-             <td><?= $comment['postId'] ?></td>
-             <td><?= htmlspecialchars($comment['author']) ?></td>
-             <td><?= $comment['comment_date_fr'] ?></td>
-             <td><?= htmlspecialchars($comment['comment']) ?></td>
+             <td><?= $comment->getPostId(); ?></td>
+             <td><?= htmlspecialchars($comment->getAuthor()); ?></td>
+             <td><?= $comment->getComment_date(); ?></td>
+             <td><?= htmlspecialchars($comment->getComment()); ?></td>
              <td><?php if($comment['is_signaled'] ==1): echo'Commentaire signalé'; ?><?php ;elseif($comment['is_signaled']==0): echo '';?><p></p> <?php endif;?></td>
              <td><a href="index.php?action=approveComment&amp;id=<?= $comment['id']?>"
              onclick="return confirm('Etes vous certain de vouloir approuver ce commentaire?')">Approuver</td>

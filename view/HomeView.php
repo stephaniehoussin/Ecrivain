@@ -17,7 +17,7 @@
     <div class="card">
       <div class="card-home">
         <p class="card-title">Episode n° <?=$post->getId();?> : "<?= htmlspecialchars($post->getTitle());?>"</p>
-        <p class="card-date">Publié le : <?=$post->getCreation_date();?></p>
+        <p class="card-date">Publié le : <?= $post->getCreation_date();?></p>
         <p class="card-author">Par : <?= htmlspecialchars($post->getAuthor());?></p>
         <p class="card-text"><?= substr(nl2br($post->getContent()),0,400);?></p>
         <a class="card-btn"><em><a href="index.php?action=post&amp;id=<?=$post->getId();?>" class="btn link">Lire la suite</a></em><br/>

@@ -1,29 +1,37 @@
 <?php
-// Rôle -> Manager -> effectuer opérations de lecture ecriture sur les tables -> CRUD
 class CommentManager extends Manager
 {
    // READ = Affichage de  TOUS les commentaires
    public function getAllComments()
    {
+        $comments = [];
         $req = $this->db()->query('SELECT id,postId, author, comment,is_signaled, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\')AS comment_date_fr  FROM comments ORDER BY comment_date');
-        return $req;
+        while($donnees = $req->fetch(PDO::FETCH_ASSOC))
+        {
+          $comments[] = new Comment($donnees);
+        }
+        return $comments;
    }
     // READ =  Récupère les commentaires en fonction d'un post précis
     // Récupère en paramètres les infos dont on a besoin
     public function getComments($postId)
     {
-        $comments = $this->db()->prepare('SELECT id,author,comment , is_signaled, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\')AS comment_date_fr FROM comments WHERE postId = ? ORDER BY comment_date DESC');
-        $comments->execute(array($postId));
-        return $comments;
+        $req = $this->db()->prepare('SELECT id,author,comment , is_signaled, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\')AS comment_date_fr FROM comments WHERE postId = ? ORDER BY comment_date DESC');
+        $req->execute(array($postId));
+        $donnees = $req->fetch();
+        $comment = new Comment($donnees);
+        return $comment;
     }
   // CREATE commentaires
   // Ajoute les commentaires en fonction du post
   // Récupère en paramètres les infos dont on a besoin
-  public function addComment($postId, $author, $comment)
+  public function addComment(comments $comments)//OK
   {
-      $comments = $this->db()->prepare('INSERT INTO comments(postId,author,comment,comment_date) VALUES(?,?,?,NOW())');
-      $affectedLines = $comments->execute(array($postId,$author,$comment));
-      return $affectedLines;
+      $req = $this->db()->prepare('INSERT INTO comments(postId,author,comment,comment_date) VALUES(:postId, :author, :comment,NOW())');
+      $req->bindValue(':postId',$comments->getPostId());
+      $req->bindValue(':author',$comments->getAuthor());
+      $req->bindValue(':comment',$comments->getComment());
+
   }
     // DELETE
     // Supprime les commentaires
