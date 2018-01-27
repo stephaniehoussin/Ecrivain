@@ -34,8 +34,8 @@ class PostManager extends Manager
       $req = $this->db()->prepare('SELECT id,author,title,content,DATE_FORMAT(creation_date,\'%d/%m/%Y à %Hh%i\')AS creation_date_fr FROM posts WHERE id= ?');
       $req->execute(array($id));
       $donnees = $req->fetch();
-      $post = new Post($donnees);
-      return $post;
+      $Onepost = new Post($donnees);
+      return $Onepost;
   }
   // recuperer le dernier billet posté pour page Accueil
 

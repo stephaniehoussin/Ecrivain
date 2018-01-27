@@ -29,15 +29,15 @@ public function routerRequete()
         }
         elseif($action == 'post')
            {
-               //if (isset($_GET['id']) && $_GET['id'] > 0)
-                  // {
+               if (isset($_GET['id']) && $_GET['id'] > 0)
+                   {
                        $controller = new FrontController();
                        $controller->onePost();
-                  // }
-               /*else
+                   }
+               else
                  {
                        throw new Exception('Aucun identifiant de billet envoyé');
-                 }*/
+                 }
            }
       elseif($action =='addComment')
         {
@@ -46,7 +46,7 @@ public function routerRequete()
                     if (!empty($_POST['author']) && !empty($_POST['comment']))
                       {
                           $controller = new FrontController();
-                          $controller->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                          $controller->addComment($_GET['postId'], $_POST['author'], $_POST['comment']);
                       }
             else
               {
@@ -109,7 +109,9 @@ public function routerRequete()
             elseif($action == 'updateModifyPost')
             {
               $controller = new AdminController();
-              $controller->updateModifyPost();
+              //$controller->updateModifyPost();
+              $controller->updateAdminPost();
+              $controller->allAdmin();
             }
             elseif($action == 'updateAdminPost')
             {
@@ -123,6 +125,7 @@ public function routerRequete()
               {
                 $controller = new FrontController();
                 $controller->reportComment($_GET['id'], $_GET['postId']);
+                //$_GET['id'], $_GET['postId']
               }
               else {
                 throw new Exception('Aucun identifiant de signalement envoyé');

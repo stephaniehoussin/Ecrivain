@@ -13,10 +13,12 @@ class AdminController
      $this->comment = new CommentManager();
      $this->report = new CommentManager();
    }
+
    public function showlogin()
      {
        require('view/LoginView.php');
      }
+     // UserManager- > methode connexion
     public function signin($login,$password)
      {
         $result = $this->result->getUsername($login,$password);
@@ -29,6 +31,8 @@ class AdminController
         }
      }
   // AFFICHE TOUS les billets et les commentaires associés
+   // PostManager - > Methode pour afficher TOUS les BILLETS
+   // CommentManager -> Methode pour afficher TOUS les commentaires
    public function allAdmin()
    {
         $posts = $this->post->getAllPosts();
@@ -41,40 +45,49 @@ class AdminController
         require('view/CreateNewPostView.php');
    }
    // CREATION billet -> Récupère en paramètres les infos dont on a besoin
+   // PostManager -> methode pour créer nouveau billet
    public function createNewPost($author, $title, $content)
    {
-       $posts = $this->post->createPost($post);
+       $post = new Post([
+         'author' => $author,
+         'title' => $title,
+         'content' => $content
+       ]);
+       $this->post->createPost($post);
        header('Location : index.php?action=admin');
    }
    // SUPPRESSION d'un billet ET de ses commentaires associés -> Récupère en paramètres les infos dont on a besoin
+    // PostManager -> Suppression post
+    // COmmentManager -> suppresion commentaires associés
    public function deletePost($postId)
    {
-      $postManager->deletePost($postId);
-      $commentManager->deleteFromPost($postId);
+      $this->post->deletePost($postId);
+      $this->comment->deleteFromPost($postId);
       header('Location : index.php?action=admin');
    }
    // MISE A JOUR billet
    public function updateAdminPost()
    {
-      $postManager->updatePost($_POST['author'],$_POST['title'],$_POST['content'], $_GET['id']);
+      $this->post->updatePost($_POST['author'],$_POST['title'],$_POST['content'], $_GET['id']);
+      //$postManager->updatePost($_POST['author'],$_POST['title'],$_POST['content'], $_GET['id']);
       header('Location : index.php?action=admin');
    }
    // SUPPRESSION commentaires ->  Récupère en paramètres les infos dont on a besoin
    public function deleteComment($commentId)
    {
-      $commentManager->deleteComment($commentId);
+     $this->comment->deleteComment($commentId);
       header('Location: index.php?action=admin');
    }
    // MODIFIER post MISE A JOUR du post
   public function updateModifyPost()
    {
-      $post = $postManager->updateModifyPost($_GET['id']);
+      $this->post->updateModifyPost($_GET['id']);
       require('view/updatePostView.php');
    }
    //APPROUVER commentaires signalés
    public function approveComment()
    {
-      $report = $this->report->approveComment($_GET['id']);
+      $this->report->approveComment($_GET['id']);
       header('Location: index.php?action=admin');
    }
 }

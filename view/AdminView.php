@@ -14,7 +14,7 @@
           <tr>
             <th scope="col">Identifiant</th>
             <th scope="col">Date</th>
-            <!--<th scope="col">Auteur</th>-->
+            <th scope="col">Auteur</th>
             <th scope="col">Titre</th>
             <th scope="col">Contenu</th>
             <th scope="col">Modifier</th>
@@ -27,7 +27,7 @@
            <tr>
              <td><?= $post->getId(); ?></td>
              <td><?= $post->getCreation_date();?></td>
-            <!-- <td><?= htmlspecialchars($post['author'])?></td>-->
+            <td><?= htmlspecialchars($post->getAuthor());?></td>
              <td><?= htmlspecialchars($post->getTitle());?></td>
              <td><?= substr($post->getContent(),0,400); ?></td><!-- limitation à 400 caractères -->
              <td><a href="index.php?action=updateModifyPost&amp;id=<?= $post->getId();?>">Modifier</a></td>
@@ -43,7 +43,7 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <!--<th scope="col">Identifiant</th>-->
+            <th scope="col">Identifiant</th>
             <th scope="col">Episode associé</th>
             <th scope="col">Auteur</th>
             <th scope="col">Date</th>
@@ -57,15 +57,15 @@
           <!-- Boucle des commentaires et affichage -->
           <?php foreach ($comments as $comment):?>
            <tr>
-             <!--<td><?= $comment['id'] ?></td>-->
+             <td><?= $comment->getId();?></td>
              <td><?= $comment->getPostId(); ?></td>
              <td><?= htmlspecialchars($comment->getAuthor()); ?></td>
              <td><?= $comment->getComment_date(); ?></td>
              <td><?= htmlspecialchars($comment->getComment()); ?></td>
-             <td><?php if($comment['is_signaled'] ==1): echo'Commentaire signalé'; ?><?php ;elseif($comment['is_signaled']==0): echo '';?><p></p> <?php endif;?></td>
-             <td><a href="index.php?action=approveComment&amp;id=<?= $comment['id']?>"
+             <td><?php if($comment->getIs_signaled()==1): echo'Commentaire signalé';; ?><?php ;elseif($comment->getIs_signaled()==0): echo '';;?><p></p> <?php endif;?></td>
+             <td><a href="index.php?action=approveComment&amp;id=<?= $comment->getId();?>"
              onclick="return confirm('Etes vous certain de vouloir approuver ce commentaire?')">Approuver</td>
-             <td><a href="index.php?action=deleteComment&amp;id=<?= $comment['id']?>
+             <td><a href="index.php?action=deleteComment&amp;id=<?= $comment->getId();?>
               " onclick="return confirm('Etes vous certain de vouloir effacer ce Commentaire?')" >Supprimer</td>
            </tr>
          <?php endforeach;?>

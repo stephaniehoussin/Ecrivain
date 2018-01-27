@@ -47,12 +47,12 @@ class Post
   public function getCreation_date()
   {
     return $this->creation_date;
-
   }
   public function getDonnees()
   {
     return $this->donnees;
   }
+
   // SETTERS
   public function setId($id)
   {
@@ -70,8 +70,9 @@ class Post
   {
       $this->content = $content;
   }
-  public function setCreation_date()
+  public function setCreation_date($creation_date)
   {
+
     $this->creation_date = $creation_date;
   }
   public function setDonnees(array $donnees)

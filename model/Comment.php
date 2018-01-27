@@ -35,6 +35,7 @@ public function hydrate(array $donnees)
   }
   public function getPostId()
   {
+    //$postId = (int) $postId;
     return $this->postId;
   }
   public function getAuthor()
@@ -64,6 +65,7 @@ public function hydrate(array $donnees)
   }
   public function setPostId($postId)
   {
+
     $this->postId = $postId;
   }
   public function setAuthor($author)

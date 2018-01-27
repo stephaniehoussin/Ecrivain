@@ -15,7 +15,6 @@
 <form name="formulaire" id="formulaire" action="index.php?action=validateNewPost" method="post" enctype="multipart/form-data">
 <label for="author">Auteur</label><p><input type="text" name="author"/></p>
 <label for="title">Titre</label><p><input type="text" name="title"/></p>
-
 <label for="content">Contenu</label><p><textarea id="texte" name="content" rows="25"></textarea></p>
 <button type="submit" name="submit">Editer le Billet</button>
 </form>
