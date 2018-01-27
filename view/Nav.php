@@ -6,7 +6,7 @@
   <ul class="breadcrumb">
       <li class="active"><a href="index.php?action=home">Accueil</li>
       <li><a href="index.php?action=posts">Episodes</a></li>
-      <li><a href="index.php?action=login">Admin</a></li>
+      <li><a href="index.php?action=admin">Admin</a></li>
   </ul>
   </div>
 </div>

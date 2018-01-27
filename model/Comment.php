@@ -10,7 +10,7 @@ class Comment
 
 public function __construct($donnees = [])
 {
-  if(!empty($donnees)) // si on a specifie des valeurs alors on hydrate l objet
+  if(!empty($donnees))
   {
     $this->hydrate($donnees);
   }
@@ -27,7 +27,6 @@ public function hydrate(array $donnees)
     }
   }
 }
-  //getters
 
   public function getId()
   {
@@ -35,7 +34,6 @@ public function hydrate(array $donnees)
   }
   public function getPostId()
   {
-    //$postId = (int) $postId;
     return $this->postId;
   }
   public function getAuthor()
@@ -58,7 +56,6 @@ public function hydrate(array $donnees)
   {
     return $this->donnees;
   }
-  // setters
   public function setId($id)
   {
       $this->id = $id;
@@ -94,5 +91,4 @@ public function hydrate(array $donnees)
   {
     $this->donnees = $donnees;
   }
-
 }

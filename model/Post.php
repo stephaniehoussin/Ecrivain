@@ -10,12 +10,11 @@ class Post
 
   public function __construct($donnees = [])
   {
-    if(!empty($donnees)) // si on a specifie des valeurs alors on hydrate l objet
+    if(!empty($donnees))
     {
       $this->hydrate($donnees);
     }
   }
-
   public function hydrate(array $donnees)
   {
     foreach($donnees as $key => $value)
@@ -27,7 +26,6 @@ class Post
       }
     }
   }
-  // getters -> retournent les proprietes
   public function getId()
   {
     return $this->id;
@@ -52,8 +50,6 @@ class Post
   {
     return $this->donnees;
   }
-
-  // SETTERS
   public function setId($id)
   {
       $this->id =  $id;
@@ -72,7 +68,6 @@ class Post
   }
   public function setCreation_date($creation_date)
   {
-
     $this->creation_date = $creation_date;
   }
   public function setDonnees(array $donnees)

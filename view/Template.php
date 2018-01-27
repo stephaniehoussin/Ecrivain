@@ -16,17 +16,15 @@
         <script type="text/javascript" src="public/js/tiny_mce/tiny_mce.js"></script>
         <script type="text/javascript">
         tinyMCE.init({
-          width : 700,
-          height : 500,
+              width : 700,
+             height : 500,
             entity_encoding : "raw",
             encoding : "utf-8",
             mode : "exact",
             elements : "texte,texte2",
             theme : "advanced",
             plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks",
-            //forced_root_block : false,
-            //force_br_newlines : true,
-            //force_p_newlines : false,
+
             // les outils à afficher
             theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
             theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",

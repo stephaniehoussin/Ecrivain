@@ -5,7 +5,7 @@ class UserManager extends Manager
       {
         $req = $this->db()->prepare('SELECT id FROM users WHERE login = :login AND password = :password');
         $req->execute(array('login' => $login, 'password' => $password));
-        $result = $req->fetch();
-        return $result;
+        $user = $req->fetch();
+        return $user;
       }
 }

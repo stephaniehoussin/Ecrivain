@@ -1,6 +1,4 @@
 <?php
-// classe de connexion à la bdd
-// Est ce que c'est utile de garder le bloc try catch ?
 class Manager
 {
    protected $db;
