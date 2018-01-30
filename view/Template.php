@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
-<!-- Voir si vraiment utile de laisser toute cette liste -->
     <head>
         <meta charset="utf-8">
-        <!-- template de base , ne concerne que IE -->
         <meta http-equiv="X-UA-compatible" content-"IE-edge">
-        <!-- ligne qui concerne les mobiles = occupe tout l'espace avec une taille de 1 -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- bootstrap CSS à déclarer dans le head -->
-        <!-- penser à mettre la version .min lors du passage du blog en ligne -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="public/css/bootstrap.css" rel="stylesheet">
-        <!-- css -->
         <link href="public/css/style.css" rel="stylesheet"type="text/css" >
-        <!-- Intégration TinyMCE  -->
         <script type="text/javascript" src="public/js/tiny_mce/tiny_mce.js"></script>
         <script type="text/javascript">
-        tinyMCE.init({
-              width : 700,
-             height : 500,
+
+        tinyMCE.init
+        ({
+            width : 700,
+            height : 500,
             entity_encoding : "raw",
             encoding : "utf-8",
             mode : "exact",
             elements : "texte,texte2",
             theme : "advanced",
             plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks",
-
             // les outils à afficher
             theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
             theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
@@ -40,17 +34,18 @@
             theme_advanced_blockformats : "h1, h2,h3,h4,h5,h6,p",// balise html disponible
             theme_advanced_styles : "Tableau=textTab;TableauSansCadre=textTabSansCadre;",// class disponible
         });
-  </script>
+        </script>
+
         <title><?= $title ?></title>
     </head>
+
     <body>
-<?php include('view/Nav.php');?>
-<!--<p class="title">Billet Simple pour L'Alaska</p>-->
-        <?= $content ?><!-- utilisation de la variable $content -->
-<?php include('view/Footer.php'); ?>
-        <!-- Bootstrap JS et jquery -->
-        <!-- penser à mettre la version .min -->
-        <script src="public/js/jquery.js"></script>
-        <script src="public/js/bootstrap.js"></script>
+      <?php include('view/Nav.php');?>
+          <?= $content ?>
+      <?php include('view/Footer.php'); ?>
+
+      <script src="public/js/jquery.js"></script>
+      <script src="public/js/bootstrap.js"></script>
+
     </body>
 </html>

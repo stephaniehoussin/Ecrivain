@@ -15,9 +15,9 @@
             </form>
         </div>
       </div>
-      <div class="card">
-        <a href="index.php?action=home" class="btn btn-danger btn-xs" role="button" aria-pressed="true"><i class="fa fa-home"></i> Retour vers l'accueil</a>
-      </div>
+        <div class="card">
+          <a href="index.php?action=home" class="btn btn-danger btn-xs" role="button" aria-pressed="true"><i class="fa fa-home"></i> Retour vers l'accueil</a>
+        </div>
     </div>
   </div>
 </div>

@@ -7,7 +7,6 @@ class Post
   private $content;
   private $creation_date;
 
-
   public function __construct($donnees = [])
   {
     if(!empty($donnees))
@@ -15,17 +14,19 @@ class Post
       $this->hydrate($donnees);
     }
   }
+
   public function hydrate(array $donnees)
   {
     foreach($donnees as $key => $value)
     {
-      $method = 'set'.ucfirst($key);
-      if(method_exists($this, $method))
-      {
-        $this->$method($value);
-      }
+        $method = 'set'.ucfirst($key);
+          if(method_exists($this, $method))
+          {
+            $this->$method($value);
+          }
     }
   }
+
   public function getId()
   {
     return $this->id;
@@ -50,6 +51,7 @@ class Post
   {
     return $this->donnees;
   }
+
   public function setId($id)
   {
       $this->id =  $id;

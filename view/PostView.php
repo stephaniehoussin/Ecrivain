@@ -14,7 +14,6 @@
           <p class="card-text"><?= nl2br($post->getContent()); ?></p>
           <br/>
       </div>
-              <!-- Formulaire pour laisser des commentaires -->
   <div class="card">
       <div class="card-comments">
           <div class="col-lg-8">
@@ -39,17 +38,17 @@
   <div class="card">
     <div class="card-report">
       <div class="col-lg-8">
-  <!-- Affichage des commentaires postés -->
-<?php
-foreach ($comments as $comment) :?>
-    <p class="card-author">Commentaire laissé par : <?= htmlspecialchars($comment->getAuthor()); ?></p>
-    <p class="card-date">le <?= $comment->getComment_date(); ?></p>
-    <p class="card-comment"><?= nl2br(htmlspecialchars($comment->getComment())); ?></p>
-    <p><a href="index.php?action=reportComment&amp;id=<?= $comment->getId();?>&amp;postId=<?= $post->getId();?>
-        "<button type="button" class="btn btn-primary btn-sm">Signaler ce commentaire</a></button></p>
-<?php if($comment->getIs_signaled()) :; ?><p class="card-message"> Le commentaire a bien été signalé !</p>
-<?php endif ?>
-<?php endforeach ;?>
+
+        <?php foreach ($comments as $comment) :?>
+          <p class="card-author">Commentaire laissé par : <?= htmlspecialchars($comment->getAuthor()); ?></p>
+          <p class="card-date">le <?= $comment->getComment_date(); ?></p>
+          <p class="card-comment"><?= nl2br(htmlspecialchars($comment->getComment())); ?></p>
+          <p><a href="index.php?action=reportComment&amp;id=<?= $comment->getId();?>&amp;postId=<?= $post->getId();?>
+          "<button type="button" class="btn btn-primary btn-sm">Signaler ce commentaire</a></button></p>
+        <?php if($comment->getIs_signaled()) :; ?><p class="card-message"> Le commentaire a bien été signalé !</p>
+        <?php endif ?>
+        <?php endforeach ;?>
+
     </div>
   </div>
 </div>
