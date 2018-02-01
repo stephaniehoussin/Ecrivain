@@ -1,13 +1,9 @@
 <?php $title = 'CREER UN NOUVEAU BILLET';?>
 <?php ob_start(); ?>
 <h2 class="card-title-posts">Ecrire un nouveau Billet :</h2>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4">
+    <div class="col-sm-12 text-center">
           <a href="index.php?action=admin" class="btn btn-primary">Retour vers l'espace d'administration</a>
-      </div>
     </div>
-  </div>
   <div class="container">
     <div class="card">
       <div class="col-lg-12">

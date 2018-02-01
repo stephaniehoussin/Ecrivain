@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-compatible" content-"IE-edge">
+        <!--<meta http-equiv="X-UA-compatible" content-"IE-edge">-->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="public/css/bootstrap.css" rel="stylesheet">
         <link href="public/css/style.css" rel="stylesheet"type="text/css" >
@@ -11,8 +11,8 @@
 
         tinyMCE.init
         ({
-            width : 700,
-            height : 500,
+            //width : 700,
+            //height : 500,
             entity_encoding : "raw",
             encoding : "utf-8",
             mode : "exact",

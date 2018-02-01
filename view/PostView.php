@@ -1,10 +1,13 @@
 <?php $title = 'Billet n°'.$_GET['id']; ?>
 <?php ob_start(); ?>
 <!-- Affichage d'un billet et de la possibilité de laisser un commentaire-->
-<div class="retour-accueil">
-  <p><a href="index.php?action=posts">Retour à la liste de tous les épisodes</a></p>
+<div class="col-sm-12 text-center">
+  <p><a href="index.php?action=posts" class="btn btn-primary">Retour à la liste de tous les épisodes</a></p>
 </div>
 <div class="container">
+  <div class="card">
+    <h1 class="card-title">Episode n° : <?= $post->getId(); ?></h1>
+  </div>
   <div class="card">
     <div class="card-post">
       <div class="col-lg-12">
@@ -40,6 +43,7 @@
       <div class="col-lg-8">
 
         <?php foreach ($comments as $comment) :?>
+
           <p class="card-author">Commentaire laissé par : <?= htmlspecialchars($comment->getAuthor()); ?></p>
           <p class="card-date">le <?= $comment->getComment_date(); ?></p>
           <p class="card-comment"><?= nl2br(htmlspecialchars($comment->getComment())); ?></p>

@@ -23,9 +23,9 @@ class Routeur
         {
 		 	      $action = 'home';
 		    }
-      if($action == 'home')
+        if($action == 'home')
         {
-           $this->ctrlFront->home();
+          $this->ctrlFront->home();
         }
       elseif($action == 'posts')
         {
@@ -33,7 +33,7 @@ class Routeur
         }
       elseif($action == 'post')
         {
-          if (isset($_GET['id']) && $_GET['id'] > 0)
+          if (isset($_GET['id']) && !empty($_GET['id']) && $_GET['id'] > 0)
             {
               $this->ctrlFront->onePost();
             }
@@ -102,27 +102,46 @@ class Routeur
         }
       elseif($action == 'validateNewPost')
         {
-          $this->ctrlAdmin->createNewPost($_POST['author'], $_POST['title'],$_POST['content']);
-          $this->ctrlAdmin->allAdmin();
+          if(isset($_POST['author']) && $_POST['title'] && $_POST['content'])
+          {
+            $this->ctrlAdmin->createNewPost($_POST['author'], $_POST['title'],$_POST['content']);
+            $this->ctrlAdmin->allAdmin();
+          }
+          else
+          {
+            throw new Exception('Tous les champs ne sont pas remplis !');
+          }
         }
       elseif($action == 'deletePost')
         {
-          $this->ctrlAdmin->deletePost($_GET['id']);
-          $this->ctrlAdmin->allAdmin();
+          if(isset($_GET['id']) && !empty($_GET['id']))
+          {
+            $this->ctrlAdmin->deletePost($_GET['id']);
+            $this->ctrlAdmin->allAdmin();
+          }
         }
         elseif($action == 'updateModifyPost')
            {
-             $this->ctrlAdmin->updateModifyPost();
+             if(isset($_GET['id']) && $_GET['id'] >0 )
+             {
+               $this->ctrlAdmin->updateModifyPost();
+             }
            }
-           elseif($action == 'updateAdminPost')
+           elseif($action == 'updatePost')
            {
-             $this->ctrlAdmin->updateAdminPost();
-             $this->ctrlAdmin->AllAdmin();
+             if(isset($_GET['id']) && $_GET['id'] >0)
+             {
+               $this->ctrlAdmin->updatePost();
+               $this->ctrlAdmin->AllAdmin();
+             }
            }
       elseif($action == 'deleteComment')
         {
-          $this->ctrlAdmin->deleteComment($_GET['id']);
-          $this->ctrlAdmin->allAdmin();
+          if(isset($_GET['id']) && $_GET['id'] >0)
+          {
+            $this->ctrlAdmin->deleteComment($_GET['id']);
+            $this->ctrlAdmin->allAdmin();
+          }
         }
       elseif ($action == 'approveComment')
         {
@@ -135,11 +154,16 @@ class Routeur
             {
               throw new Exception('Aucun identifiant de signalement à approuver');
             }
-        }
           }
+          else
+          {
+            header('Location:index.php?action=home');
+          }
+        }
+
    catch(Exception $e)
     {
      echo 'Erreur : ' . $e->getMessage();
     }
+      }
  }
-}

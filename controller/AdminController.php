@@ -34,7 +34,10 @@ class AdminController
    public function allAdmin()
    {
       $posts = $this->post->getAllPosts();
+      $postsNbr = $this->post->countPosts();
       $comments = $this->comment->getAllComments();
+      $commentsNbr = $this->comment->countComments();
+      $commentsReport = $this->comment->countCommentsReport();
       require ('view/AdminView.php');
    }
 
@@ -61,7 +64,7 @@ class AdminController
       header('Location : index.php?action=admin');
    }
 
-   public function updateAdminPost()
+   public function updatePost()
    {
       $this->post->updatePost($_POST['author'],$_POST['title'],$_POST['content'], $_GET['id']);
       header('Location : index.php?action=admin');
@@ -84,4 +87,5 @@ class AdminController
       $this->comment->approveComment($_GET['id']);
       header('Location: index.php?action=admin');
    }
+
 }

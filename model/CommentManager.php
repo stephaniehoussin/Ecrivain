@@ -12,7 +12,7 @@ class CommentManager extends Manager
         return $comments;
    }
 
-    public function getComments($postId)
+    public function getOnePostComments($postId)
     {
         $comments = [];
         $req = $this->db()->prepare('SELECT id,author,comment , is_signaled, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\')AS comment_date FROM comments WHERE postId = ? ORDER BY comment_date DESC');
@@ -57,5 +57,23 @@ class CommentManager extends Manager
         $req->bindValue(1, $id, PDO::PARAM_INT);
         $req->execute();
         $req->closeCursor();
+   }
+
+   public function countComments()
+   {
+     $req = $this->db()->prepare('SELECT COUNT(*) FROM comments');
+     $req->execute();
+     $datas = $req->fetchAll();
+     $req->closeCursor();
+     return $datas[0];
+   }
+
+   public function countCommentsReport()
+   {
+     $req = $this->db()->prepare('SELECT COUNT(*) FROM comments WHERE is_signaled=1');
+     $req->execute();
+     $datas = $req->fetchAll();
+     $req->closeCursor();
+     return $datas[0];
    }
 }

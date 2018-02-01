@@ -1,8 +1,16 @@
 <?php $title = 'Billet simple pour l\'alaska'; ?>
 <?php ob_start(); ?>
-  <h2 class="card-title-posts">Tous les épisodes</h2>
-  <h3 class="card-title-posts">Billet simple pour l'Alaska</h3>
-    <div class="container">
+  <div class="container">
+    <div class="card">
+
+        <h2 class="card-title-posts">Tous les épisodes</h2>
+        <h3 class="card-title">Billet simple pour l'Alaska</h3>
+      </div>
+
+  <div class="image-posts" style="background-image : url('public/img/8.jpg')">
+  </div>
+  <br/>
+
       <div class="row">
 
         <?php foreach ($posts as $post):?>
@@ -21,5 +29,7 @@
 
     </div>
   </div>
+</div>
+
 <?php $content = ob_get_clean(); ?>
 <?php require('view/template.php'); ?>

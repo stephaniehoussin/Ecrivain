@@ -3,18 +3,17 @@ class PostManager extends Manager
 {
   public function getAllPosts()
   {
-      $posts = [];
-      $req = $this->db()->query('SELECT id,author,title,content,DATE_FORMAT(creation_date,\'%d/%m/%Y à %Hh%i\' )AS creation_date FROM posts ORDER BY id DESC ');
+      $req = $this->db()->query('SELECT id,author,title,content,DATE_FORMAT(creation_date,\'%d/%m/%Y à %Hh%i\' )AS creation_date FROM posts ORDER BY id DESC');
       while($donnees = $req->fetch(PDO::FETCH_ASSOC))
       {
         $posts[] = new Post($donnees);
       }
       return $posts;
   }
-  public function getLastPost() // OK
+
+  public function getLastPost()
   {
-      $lastPost = [];
-      $req = $this->db()->query('SELECT id,author,title,content,DATE_FORMAT(creation_date,\'%d/%m/%Y à %Hh%i\')AS creation_date FROM posts ORDER BY creation_date DESC LIMIT 0,4');
+      $req = $this->db()->query('SELECT id,author,title,content,DATE_FORMAT(creation_date,\'%d/%m/%Y à %Hh%i\')AS creation_date FROM posts ORDER BY id DESC LIMIT 0,4');
         while($donnees = $req->fetch(PDO::FETCH_ASSOC))
         {
           $lastPost[] = new Post($donnees);
@@ -24,11 +23,11 @@ class PostManager extends Manager
 
   public function getOnePost($postId)
   {
-      $req = $this->db()->prepare('SELECT id,author,title,content,DATE_FORMAT(creation_date,\'%d/%m/%Y à %Hh%i\')AS creation_date FROM posts WHERE id='.$postId);
-      $req->execute(array($postId));
-      $donnees = $req->fetch();
-      $Onepost = new Post($donnees);
-      return $Onepost;
+    $req = $this->db()->prepare('SELECT id,author,title,content,DATE_FORMAT(creation_date,\'%d/%m/%Y à %Hh%i\')AS creation_date FROM posts WHERE id='.$postId);
+    $req->execute(array($postId));
+    $donnees = $req->fetch();
+    $onePost = new Post($donnees);
+    return $onePost;
   }
 
   public function createPost(Post $post)
@@ -66,4 +65,14 @@ class PostManager extends Manager
       $req->execute(array($postId));
       return $req;
   }
+
+  public function countPosts()
+  {
+    $req = $this->db()->prepare('SELECT COUNT(*) FROM posts');
+    $req->execute();
+    $datas = $req->fetchAll();
+    $req->closeCursor();
+    return $datas[0];
+  }
+
 }

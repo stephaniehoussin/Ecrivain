@@ -2,9 +2,8 @@
 body
 {
   background: #F8FCFE;
+  padding-top: 150px;
 }
-/* BOUTONS */
-
 /*FOOTER*/
 .card-footer
 {
@@ -12,28 +11,17 @@ body
   text-align: center;
   padding : 35px 0;
 }
-.card-footer-one a
-{
-  font-size: 1.5em;
-  color: white;
-  text-decoration: none;
-}
-.card-footer-two
+.card-footer-one
 {
   font-family: Pristina;
   font-size: 1.5em;
   color : white;
 }
 /* NAVBAR */
-.navbar-default {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-}
-.navbar-default {
+
+.navbar-default
+ {
   background-color: black;
-  border-color: #e7e7e7;
 }
 .breadcrumb > li > a
 {
@@ -51,12 +39,13 @@ body
 {
   color: white;
   font-family: Pristina;
-  font-size: 60px;
+  font-size: 40px;
 }
 .breadcrumb
 {
   background-color: black;
 }
+
 /* TOUTES LES PAGES */
 .card
 {
@@ -70,6 +59,13 @@ body
   background-repeat: no-repeat;
   background-position: center;
   height: 700px;
+}
+/* PAGE POSTS */
+.image-posts
+{
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .card-home-title .card-title
 {
@@ -86,7 +82,7 @@ body
 {
   text-align: center;
   font-family: Pristina;
-  font-size: 60px;
+  font-size: 50px;
 }
 .card-title
 {
@@ -99,10 +95,6 @@ body
   font-weight: bold;
 }
 /* PAGE POST */
-.retour-accueil
-{
-  padding-left: 90px;
-}
 .card-report .card-message
 {
   color: red;
@@ -118,9 +110,17 @@ body
 .card-post  .card-title
 {
   font-family: Pristina;
-  font-size: 50px;
+  font-size: 40px;
 }
 .card-post .card-author
 {
   font-weight: bold;
+}
+.nbr
+{
+  color: black;
+}
+.nbr_signal
+{
+  color: red;
 }

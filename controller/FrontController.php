@@ -24,9 +24,9 @@ class FrontController
 
    public function onePost()
    {
-      $post = $this->post->getOnePost($_GET['id']);
-      $comments = $this->comment->getComments($_GET['id']);
-      require('view/postView.php');
+     $post = $this->post->getOnePost($_GET['id']);
+     $comments = $this->comment->getOnePostComments($_GET['id']);
+     require('view/postView.php');
    }
 
    public function addComment($postId,$author,$comment)
@@ -52,4 +52,6 @@ class FrontController
       $this->comment->reportComment($_GET['id']);
       header('Location: index.php?action=post&id=' .$postId);
    }
-}
+
+
+   }
