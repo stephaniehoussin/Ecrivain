@@ -86,7 +86,7 @@ class Routeur
         {
           $this->ctrlAdmin->showLogin();
         }
-      elseif($action == 'signin')
+     elseif($action == 'signin')
         {
           $this->ctrlAdmin->signin($_POST['login'], $_POST['password']);
         }
@@ -163,7 +163,8 @@ class Routeur
 
    catch(Exception $e)
     {
-     echo 'Erreur : ' . $e->getMessage();
+     //echo 'Erreur : ' . $e->getMessage();
+      require('view/errorView.php');
     }
       }
  }

@@ -1,5 +1,4 @@
 <?php
-//Essayer de voir pour ne pas détailler controller,model et view et se servir de __DIR__ à la place ? -->
 function autoload($classname)
 {
 	if(file_exists($file = 'controller/' . $classname . '.php'))

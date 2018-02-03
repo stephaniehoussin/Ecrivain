@@ -16,7 +16,7 @@ class AdminController
    {
       require('view/LoginView.php');
    }
-
+   
    public function signin($login,$password)
    {
       $user = $this->user->getUsername($login,$password);
