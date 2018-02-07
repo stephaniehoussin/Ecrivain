@@ -84,7 +84,7 @@
                     <td><?= htmlspecialchars($comment->getAuthor()); ?></td>
                     <td><?= $comment->getComment_date(); ?></td>
                     <td><?= htmlspecialchars($comment->getComment()); ?></td>
-                    <td><?php if($comment->getIs_signaled()==1): echo "Commentaire signalé !" ?></i><?php ;elseif($comment->getIs_signaled()==0): echo '';;?><p></p> <?php endif;?></td>
+                    <td><?php if($comment->getIs_signaled()==1): echo "Commentaire signalé !" ;elseif($comment->getIs_signaled()==0): echo ''; endif; ?></td>
                     <td><a href="index.php?action=approveComment&amp;id=<?= $comment->getId();?>"
                     onclick="return confirm('Etes vous certain de vouloir approuver ce commentaire?')">Approuver</td>
                     <td><a href="index.php?action=deleteComment&amp;id=<?= $comment->getId();?>

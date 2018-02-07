@@ -72,7 +72,7 @@ class CommentManager extends Manager
                                      WHERE id= ?');
         $req->bindValue(1, $id, PDO::PARAM_INT);
         $req->execute();
-        $req->closeCursor();
+        //$req->closeCursor();
    }
 
    public function countComments()
@@ -81,7 +81,7 @@ class CommentManager extends Manager
                                   FROM comments');
      $req->execute();
      $datas = $req->fetchAll();
-     $req->closeCursor();
+     //$req->closeCursor();
      return $datas[0];
    }
 
@@ -92,7 +92,7 @@ class CommentManager extends Manager
                                   WHERE is_signaled=1');
      $req->execute();
      $datas = $req->fetchAll();
-     $req->closeCursor();
+     //$req->closeCursor();
      return $datas[0];
    }
 }

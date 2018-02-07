@@ -16,7 +16,7 @@ class AdminController
    {
       require('view/LoginView.php');
    }
-   
+
    public function signin($login,$password)
    {
       $user = $this->user->getUsername($login,$password);
@@ -61,7 +61,7 @@ class AdminController
    {
       $this->post->deletePost($postId);
       $this->comment->deleteFromPost($postId);
-      header('Location : index.php?action=admin');
+      header('Location :index.php?action=admin');
    }
 
    public function updatePost()

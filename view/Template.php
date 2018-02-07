@@ -44,6 +44,7 @@
           <?= $content ?>
       <?php include('view/Footer.php'); ?>
 
+
       <script src="public/js/jquery.js"></script>
       <script src="public/js/bootstrap.js"></script>
 

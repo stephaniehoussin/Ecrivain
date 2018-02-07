@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Jeu 01 Février 2018 à 21:12
--- Version du serveur :  5.7.14
--- Version de PHP :  7.0.10
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  Dim 04 fév. 2018 à 15:27
+-- Version du serveur :  5.7.19
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,17 +28,19 @@ SET time_zone = "+00:00";
 -- Structure de la table `comments`
 --
 
-CREATE TABLE `comments` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `postId` int(11) NOT NULL,
   `author` varchar(255) NOT NULL,
-  `comment` text NOT NULL,
+  `comment` mediumtext NOT NULL,
   `comment_date` datetime NOT NULL,
-  `is_signaled` int(11) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `is_signaled` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `comments`
+-- Déchargement des données de la table `comments`
 --
 
 INSERT INTO `comments` (`id`, `postId`, `author`, `comment`, `comment_date`, `is_signaled`) VALUES
@@ -51,16 +55,18 @@ INSERT INTO `comments` (`id`, `postId`, `author`, `comment`, `comment_date`, `is
 -- Structure de la table `posts`
 --
 
-CREATE TABLE `posts` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `posts`;
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `author` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `creation_date` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `content` mediumtext NOT NULL,
+  `creation_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `posts`
+-- Déchargement des données de la table `posts`
 --
 
 INSERT INTO `posts` (`id`, `author`, `title`, `content`, `creation_date`) VALUES
@@ -76,60 +82,22 @@ INSERT INTO `posts` (`id`, `author`, `title`, `content`, `creation_date`) VALUES
 -- Structure de la table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `login` varchar(255) NOT NULL DEFAULT 'JForteroche',
-  `password` varchar(255) NOT NULL DEFAULT 'Autruche75'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `password` varchar(255) NOT NULL DEFAULT 'Autruche75',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `login`, `password`) VALUES
-(13, 'JForteroche', 'Autruche75');
+(18, 'JForteroche', 'ae1efc13dc6c416d4556daf558208f34fa38c1d4dd769f615a6515dba6f04701');
+COMMIT;
 
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `comments`
---
-ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `posts`
---
-ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `comments`
---
-ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT pour la table `posts`
---
-ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT pour la table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

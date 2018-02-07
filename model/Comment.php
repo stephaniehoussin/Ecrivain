@@ -59,11 +59,19 @@ class Comment
 
    public function setId($id)
    {
-      $this->id = $id;
+      $id = (int) $id;
+      if($id > 0)
+      {
+        $this->id = $id;
+      }
    }
    public function setPostId($postId)
    {
-      $this->postId = $postId;
+      $postId = (int) $postId;
+      if($postId > 0)
+      {
+        $this->postId = $postId;
+      }
    }
    public function setAuthor($author)
    {

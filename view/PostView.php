@@ -50,7 +50,7 @@
           <p><a href="index.php?action=reportComment&amp;id=<?= $comment->getId();?>&amp;postId=<?= $post->getId();?>
           "<button type="button" class="btn btn-primary btn-sm">Signaler ce commentaire</a></button></p>
         <?php if($comment->getIs_signaled()) :; ?><p class="card-message"> Le commentaire a bien été signalé !</p>
-        <?php endif ?>
+        <?php endif; ?>
         <?php endforeach ;?>
 
     </div>

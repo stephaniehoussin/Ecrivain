@@ -64,16 +64,17 @@ class PostManager extends Manager
           'content' =>$content,
           'id' =>$id
         ));
-      $req->closeCursor();
+    //  $req->closeCursor();
    }
 
   public function updateModifyPost($postId)
   {
       $req = $this->db()->prepare('SELECT id, title, author,content
                                    FROM posts
-                                   WHERE id= ?');
+                                   WHERE id='.$postId);
       $req->execute(array($postId));
-      $post = $req->fetch();
+      $donnees = $req->fetch();
+      $post = new Post($donnees);
       return $post;
   }
 
@@ -91,7 +92,7 @@ class PostManager extends Manager
                                  FROM posts');
     $req->execute();
     $datas = $req->fetchAll();
-    $req->closeCursor();
+    //$req->closeCursor();
     return $datas[0];
   }
 

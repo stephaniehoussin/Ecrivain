@@ -54,19 +54,32 @@ class Post
 
   public function setId($id)
   {
-      $this->id =  $id;
+      $id = (int) $id;
+      if($id > 0)
+      {
+          $this->id =  $id;
+      }
   }
   public function setAuthor($author)
   {
-      $this->author = $author;
+     if(is_string($author))
+     {
+       $this->author = $author;
+     }
   }
   public function setTitle($title)
   {
-      $this->title = $title;
+      if(is_string($title))
+      {
+          $this->title = $title;
+      }
   }
   public function setContent($content)
   {
-      $this->content = $content;
+      if(is_string($content))
+      {
+        $this->content = $content;
+      }
   }
   public function setCreation_date($creation_date)
   {
